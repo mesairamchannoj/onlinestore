@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+        $(function(){
+            if($.cookie("username")==undefined){
+                location.href = "login.html";
+            } else {
+                $("#user").html($.cookie("username"));
+            }
+            $("#signout").click(function(){
+                $.removeCookie("username");
+                location.href = "login.html";
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>Tutorial Home | <span id="user"></span></h2>
+    <a href="contact.html">Go to Contacts</a>
+    <p>Online Video Training</p>
+    <button class="btn btn-danger" id="signout">Sign Out</button>
+</body>
+</html>
